@@ -1,6 +1,6 @@
 import axios from "axios";
 export const getAllMovies = async () => {
-  const res = await axios.get("/movie").catch((err) => console.log(err));
+  const res = await axios.get("https://my-project-backend-o989.onrender.com/movie").catch((err) => console.log(err));
 
   if (res.status !== 200) {
     return console.log("No Data");
@@ -12,7 +12,7 @@ export const getAllMovies = async () => {
 
 export const sendUserAuthRequest = async (data, signup) => {
   const res = await axios
-    .post(`/user/${signup ? "signup" : "login"}`, {
+    .post(`https://my-project-backend-o989.onrender.com/user/${signup ? "signup" : "login"}`, {
       name: signup ? data.name : "",
       email: data.email,
       password: data.password,
@@ -29,7 +29,7 @@ export const sendUserAuthRequest = async (data, signup) => {
 
 export const sendAdminAuthRequest = async (data) => {
   const res = await axios
-    .post("/admin/login", {
+    .post("https://my-project-backend-o989.onrender.com/admin/login", {
       email: data.email,
       password: data.password,
     })
@@ -44,7 +44,7 @@ export const sendAdminAuthRequest = async (data) => {
 };
 
 export const getMovieDetails = async (id) => {
-  const res = await axios.get(`/movie/${id}`).catch((err) => console.log(err));
+  const res = await axios.get(`https://my-project-backend-o989.onrender.com/movie/${id}`).catch((err) => console.log(err));
   if (res.status !== 200) {
     return console.log("Unexpected Error");
   }
@@ -54,7 +54,7 @@ export const getMovieDetails = async (id) => {
 
 export const newBooking = async (data) => {
   const res = await axios
-    .post("/booking", {
+    .post("https://my-project-backend-o989.onrender.com/booking", {
       movie: data.movie,
       seatNumber: data.seatNumber,
       date: data.date,
@@ -72,7 +72,7 @@ export const newBooking = async (data) => {
 export const getUserBooking = async () => {
   const id = localStorage.getItem("userId");
   const res = await axios
-    .get(`/user/bookings/${id}`)
+    .get(`https://my-project-backend-o989.onrender.com/user/bookings/${id}`)
     .catch((err) => console.log(err));
 
   if (res.status !== 200) {
@@ -84,7 +84,7 @@ export const getUserBooking = async () => {
 
 export const deleteBooking = async (id) => {
   const res = await axios
-    .delete(`/booking/${id}`)
+    .delete(`https://my-project-backend-o989.onrender.com/booking/${id}`)
     .catch((err) => console.log(err));
 
   if (res.status !== 200) {
@@ -97,7 +97,7 @@ export const deleteBooking = async (id) => {
 
 export const getUserDetails = async () => {
   const id = localStorage.getItem("userId");
-  const res = await axios.get(`/user/${id}`).catch((err) => console.log(err));
+  const res = await axios.get(`https://my-project-backend-o989.onrender.com/user/${id}`).catch((err) => console.log(err));
   if (res.status !== 200) {
     return console.log("Unexpected Error");
   }
@@ -108,7 +108,7 @@ export const getUserDetails = async () => {
 export const addMovie = async (data) => {
   const res = await axios
     .post(
-      "/movie",
+      "https://my-project-backend-o989.onrender.com/movie",
       {
         title: data.title,
         description: data.description,
@@ -137,7 +137,7 @@ export const addMovie = async (data) => {
 export const getAdminById = async () => {
   const adminId = localStorage.getItem("adminId");
   const res = await axios
-    .get(`/admin/${adminId}`)
+    .get(`https://my-project-backend-o989.onrender.com/admin/${adminId}`)
     .catch((err) => console.log(err));
 
   if (res.status !== 200) {
